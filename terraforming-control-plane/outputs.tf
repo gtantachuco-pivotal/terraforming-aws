@@ -201,3 +201,22 @@ output "control_plane_web_security_group" {
 output "control_plane_lb_ca_cert" {
   value = "${module.acme_cert.issuer_pem}"
 }
+
+output "concourse_password" {
+  value     = "${var.concourse_password == "" ? random_id.concourse_password_generator.b64 : var.concourse_password}"
+  sensitive = true
+}
+
+output "ops_manager_username" {
+  value = "${var.ops_manager_username}"
+}
+
+output "ops_manager_password" {
+  value     = "${var.ops_manager_password == "" ? random_id.ops_manager_password_generator.b64 : var.ops_manager_password}"
+  sensitive = true
+}
+
+output "ops_manager_decryption_phrase" {
+  value     = "${var.ops_manager_decryption_phrase == "" ? random_id.ops_manager_decryption_phrase_generator.b64 : var.ops_manager_decryption_phrase}"
+  sensitive = true
+}

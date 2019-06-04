@@ -1,0 +1,13 @@
+vm_types:
+- name: worker
+  cloud_properties:
+    instance_type: c4.xlarge
+    ephemeral_disk:
+      size: 122880
+      type: gp2
+    raw_instance_storage: false
+
+vm_extensions:
+- cloud_properties:
+   lb_target_groups: ((lb_target_groups))
+  name: lb

@@ -14,3 +14,7 @@ om.key
 *control-plane-*.yml
 *.tgz
 *secrets.yml
+.DS_Store
+credhub-*
+credhub_*
+vars

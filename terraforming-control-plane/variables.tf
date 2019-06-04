@@ -78,6 +78,30 @@ variable "tags" {
   description = "Key/value tags to assign to all AWS resources"
 }
 
+
+variable "concourse_password" {
+  description = "Password for administrator user. Generated if left blank."
+  type        = "string"
+  default     = ""
+}
+
+variable "ops_manager_username" {
+  type    = "string"
+  default = "admin"
+}
+
+variable "ops_manager_password" {
+  description = "Password for administrator user. Generated if left blank."
+  type        = "string"
+  default     = ""
+}
+
+variable "ops_manager_decryption_phrase" {
+  description = "Decryption Phrase for Ops Manager Authentication. Generated if left blank."
+  type        = "string"
+  default     = ""
+}
+
 locals {
   ops_man_subnet_id = "${var.ops_manager_private ? element(module.infra.infrastructure_subnet_ids, 0) : element(module.infra.public_subnet_ids, 0)}"
 
