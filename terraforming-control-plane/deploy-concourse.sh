@@ -7,8 +7,8 @@ cat > vars/concourse-vars-file.yml <<EOL
 external_host: "${EXTERNAL_HOST}"
 external_url: "https://${EXTERNAL_HOST}"
 local_user:
-  username: "admin"
-  password: "admin"
+  username: "concourse"
+  password: "concourse"
 network_name: 'control-plane'
 web_instances: 1
 web_network_name: 'control-plane'
@@ -17,12 +17,13 @@ web_network_vm_extension: 'control-plane-lb-cloud-properties'
 db_vm_type: 'c4.xlarge'
 db_persistent_disk_type: '51200'
 worker_instances: 2
-worker_vm_type: 'worker'
+worker_vm_type: 'c4.xlarge'
+worker_ephemeral_disk: '512000'
 deployment_name: 'concourse'
 credhub_url: "${CREDHUB_SERVER}"
 credhub_client_id: "${CREDHUB_CLIENT}"
 credhub_client_secret: "${CREDHUB_SECRET}"
-az: ["us-west-2a"]
+az: ["us-east-1a"]
 EOL
 
 echo "$CREDHUB_CA_CERT" >> credhub_ca_cert 
